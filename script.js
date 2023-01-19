@@ -10,16 +10,22 @@ function sortArray(arr) {
 }
 
 function check(A,B,N){
-    for (let i = 0; i < N; i++) {
-        console.log('Unsorted: ' + A[i]);
-    }
     sortArray(A);
-    for (let i = 0; i < N; i++) {
-        console.log('Sorted: ' + A[i]);
+    sortArray(B);
+    let isEqual = true;
+    if (A.length != B.length) {
+        isEqual = false;
     }
+    for (let i = 0; i < N; i++) {
+        if (A[i] != B[i]) {
+            isEqual = false;
+        } 
+    }
+    return isEqual;
 }
     
 N = 5;
 let A = [1,2,5,4,0];
 let B = [2,4,5,0,1];
-check(A, B, N);
+
+console.log(check(A, B, N));
